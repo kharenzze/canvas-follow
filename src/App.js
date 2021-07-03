@@ -13,11 +13,10 @@ const App = () => {
         <ambientLight/>
         <pointLight position={[10, 10, 10]}/>
         <Background onClick={(evt) => {
-          console.log(evt.point)
           setTarget(evt.point)
         }}/>
         <CirclePlayer target={target}
-                      initialPosition={ZERO3}
+                      position={ZERO3}
                       scale={0.2}
         />
       </Canvas>

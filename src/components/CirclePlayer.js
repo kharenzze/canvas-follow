@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
-import { Vector3 } from 'three'
+import React, { useRef } from 'react'
 import { useFrame } from "@react-three/fiber";
 import { Circle } from "./Circle";
 
-const MAX_SPEED = 1
-
-export const CirclePlayer = ({ target, initialPosition,...props }) => {
-  const [state, setState] = useState(() => ({
-    position: initialPosition ?? new Vector3()
-  }))
+export const CirclePlayer = ({ target, ...props }) => {
+  const circle = useRef()
   useFrame((rootState) => {
-    //const dir = target
+    circle.current.position.lerp(target, 0.05)
   })
   return (
-    <Circle {...props}/>
+    <Circle {...props}
+            ref={circle}
+    />
   )
 }
