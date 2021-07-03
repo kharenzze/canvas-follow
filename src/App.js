@@ -14,7 +14,9 @@ function App() {
         <Background onClick={(...args) => {
           console.log(args)
         }}/>
-        <Circle position={[0, 0, 0]}/>
+        <Circle position={[0, 0, 0]}
+                scale={0.2}
+        />
       </Canvas>
     </div>
   );
